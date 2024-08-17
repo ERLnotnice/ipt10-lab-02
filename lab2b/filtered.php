@@ -1,6 +1,6 @@
 <?php
 
-define('CUSTOMERS_FILE_PATH', 'customers-100.csv');
+define('CUSTOMERS_FILE_PATH', 'customers-100000.csv');
 
 function get_hundred_customers_data( $filter_letter )
 {
@@ -35,6 +35,16 @@ function get_hundred_customers_data( $filter_letter )
 $chosen_letter = $_GET['letter'];
 
 $customers = get_hundred_customers_data($chosen_letter);
+
+$time_start = microtime(true);
+
+// Sleep for a while
+usleep(100);
+
+$time_end = microtime(true);
+$time = $time_end - $time_start;
+
+echo "It displays all the data in $time seconds\n";
 
 ?>
 <html>
